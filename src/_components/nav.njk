@@ -1,0 +1,46 @@
+  <div class="core_navigation">
+    <div class="container container-xl">
+      <nav class="core_navigation__nav">
+        <div class="row">
+          <div class="column large-2">
+              <div class="core_navigation__brand">
+                <a href="{{ '/' | url }}">
+                  <img src="./assets/images/logo/Ostern_Logo_121_min.svg" alt="">
+                </a>
+              </div>
+          </div>
+          <div class="column large-2">
+              <div class="core_navigation__links">
+                {% set navPages = collections.all | eleventyNavigation %}
+                <div class="core_navigation__links_container">
+                {%- for entry in navPages %}
+                  <div class="core_navigation__links_item"  data-text="{{ entry.title }}">
+                    {% if entry.url == page.url %}
+                      <div class="" {% if entry.url == page.url %} data-current="current item"{% endif %}>{{ entry.title }}</div>
+                    {% else %}
+                      <a class="" href="{{ entry.url | url }}"{% if entry.url == page.url %} data-current="current item"{% endif %}>{{ entry.title }}</a>
+                    {% endif %}
+                  </div>
+                {%- endfor %}
+                {# <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round themeingbutton"></span>
+                </label> #}
+              </div>
+            </div>
+          </div>
+          <div class="column large-8">
+            <div class="core_navigation__sprungmarken">
+                  <a href="#intro">Intro</a>
+                  <a href="#lage">Lage</a>
+                  <a href="#entwurf">Entwurf</a>
+                  <a href="#keyfacts">Keyfacts</a>
+                  <a href="#downloads">Downloads</a>
+                  <a href="#kontakt">Kontakt</a>
+                  <a class="button_ghost" href="">zu 123</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
